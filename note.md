@@ -5,8 +5,8 @@
 
 ### C2 Probability basic
 - Experiment: repeatable procedure with certained outcomes
-- Sample space ($\Omega$): set of all possible outcomes. A sample space could be discrete or continuous, each could be again finite or infinite.
-- Event: subset of ($\Omega$)
+- **Sample space ($\Omega$)**: set of all possible outcomes. A sample space could be discrete or continuous, each could be again finite or infinite.
+- **Event**: subset of ($\Omega$)
 - Probability function: mapping from a outcome to probability (for discrete sample space)
 - Probability density:  mapping from a range of outcomes to probability (for continuous sample space)
   
@@ -18,7 +18,7 @@
 * $P(L\cup R) = P(L) + P(R) - P(L \cap R)$
 
 ### C3 Conditional probability, independence & Beyes' Theorem
-conditional probability & multiplication rule:
+**Conditional probability** & multiplication rule:
 $$P(A|B) = \frac{P(A \cap B)}{P(B)}$$
 law of total probability:
 $$P(A) = \sum\limits_{i}P(A|B_{i})P(B_{i}) \text{  if  } P(B_{i} \cap B_{j}) = 0$$
@@ -30,7 +30,7 @@ P(A|B) &= P(A)\\
 \end{aligned}
 $$
 
-Bayes' Theorem (invert conditional probability):
+**Bayes' Theorem** (invert conditional probability):
 $$P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)} = \frac{P(B|A) \cdot P(A)}{\sum\limits_{i}P(B|A_{i})P(A_{i})} $$
 
 ### C4 Discrete radom variables
@@ -39,8 +39,27 @@ $$X:\Omega \rightarrow \mathbb{R} $$
 
 $X = a$ means a subset $S \subset \Omega$ such that $\forall s \in S, X(s) = a$
 
-Probability mass function $p(a)$ denotes the probability when $X = a$:
+**Probability mass function** $p(a)$ denotes the probability when $X = a$:
 $$p(a) = P(X = a)$$
-Cumulative distribution function $F(a)$ gives the total probability when $X \leq a$:
+**Cumulative distribution function** $F(a)$ gives the total probability when $X \leq a$:
 $$F(a) = P(X \leq a)$$ 
 
+##### Important distribution
+1. $X \sim Bernoulli(p)$ 
+$X \in \{0, 1\}$ and $P(X=1)=p, P(X=0)=1-p$
+2. $X \sim Binomial(n, p)$: n independent trials of $Bernoulli(p)$
+$$P(X=k)=\binom{k}{n}p^{k}(1-p)^{(n-k)} $$
+3. $X \sim geometric(p)$: how many $0$s before the first $1$:
+$$P(X=a)=(1-p)^{a}p $$
+4. $X \sim uniform(N)$:
+$$\forall x \in [1, N], P(X=x) = \frac{1}{N}$$
+
+**Expectation**:
+$$E(X) = \sum\limits_{j=1}^{n}p(x_{j})x_{j}$$
+
+**Properties of Expectation**:
+1. $E(aX+bY) =aE(X) + bE(Y)$
+2. $E(h(X)) = \sum\limits_{j=1}^{n}p(x_{j})h(x_{j})$
+
+
+### C5 Variance of discrete random variable
