@@ -132,3 +132,38 @@ $Cov(X, Y)=0$  $\color{red}{DO NOT}$  $\implies$ $X$ and $Y$ are independent
 
 **Correlation**: covariance of standarization of $X$ and $Y$ (dimensionless)
 $$Cor(X,Y) = \rho = \frac{Cov(X,Y)}{\sigma_X \sigma_Y}$$
+
+### C7 Bayesian Statistic
+Statistic: Infer from collected data got from designed experiment, to judge the initial hypothesis
+
+**Bayes's inference**:
+$H$ = hypothesis is true; $D$ = collected data
+
+$$P(H|D) = \frac{P(D|H)P(H)}{P(D)}$$
+
+Many statistical methods are developped to calculate each of the right-hand terms.
+
+**Base Rate Fallacy**
+
+Suppose the frequency of a disease in the popullation is 0.002 (base rate). A disease test method has 1% false positive rate and 1% false negative rate. A person was tested as positive. How can we say that the person has the disease?
+
+$H$ = 'the person has the disease'; $D$ = 'test result = positive '
+
+- Method 1: list as table
+  ||Disease|Non-disease|
+  |--|--|--|
+  |Pos|0.002*99%|0.998*1%|
+  |Neg|0.002*1%|0.0998*99%|
+  |Total|0.002|0.998|
+  
+  thus P(H\|D) = $\frac{0.002 \times 99\%}{0.002 \times 99\%+0.998 \times 1\%} =0.1655$
+
+- Method 2: Bayes
+  
+  $P(H|D) = \frac{P(D|H)P(H)}{P(D)} = \frac{P(\text{true positive})P(\text{disease})}{P(\text{true positive})P(\text{disease}) + P(\text{false positive})P(\text{non disease})} = 0.1655$
+
+Conclusion: the positive test result does not infer that the person must have the disease; instead, it just provides some evidence that the person has the disease (probability from 0.002 to 0.1655 for this person). Why the probability is so low? The root cause is that the false positive rate and false negative rate, both 1%, are quite high. If both of the false test rates reduce to 0.1%, then the probability will increase to 0.66
+
+**Maximal Likelihood Estimate (MLE)**
+
+Often, we know the distribution model, but don't know the parameter of the model. For example, in election, let $X$ = vote for someone. Then $X \sim Bernoulli(p)$. We know the model, but don't know $p$. MLE is a method to estimate $p$. To do the estimation, we first collect voting $data$. Then find $p$ such that $P(data|p)$ (which is called Likelihood) is most likely, i.e., maximal. This is usually done by derivating $P(data|p)$ and let the derivative equals to 0.
